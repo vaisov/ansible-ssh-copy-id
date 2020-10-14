@@ -1,6 +1,11 @@
 ---
 # tasks file for ansible-ssh-copy-id
 
+- name: Install python paramiko module
+  apt:
+    pkg:
+      - python3-paramiko
+
 - name: Inject SSH public key into remote system
   ssh_copy_id:
     hostname: "{{ hostname }}"
